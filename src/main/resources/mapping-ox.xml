@@ -1,0 +1,8 @@
+<mapping>
+    <class name="com.an.spring.core.da.ox.castor.Settings">
+        <map-to xml="settings" />
+        <field name="fooEnabled" type="boolean">
+            <bind-xml name="fooEnabled" node="element" />
+        </field>
+    </class>
+</mapping>

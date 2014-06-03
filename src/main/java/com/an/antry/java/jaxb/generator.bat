@@ -1,0 +1,1 @@
+xjc -d D:\ws\stscrawler\suss-parent\suss-test\src\main\java -p "com.an.java.jaxb" "D:\ws\stscrawler\suss-parent\suss-test\src\main\java\com\an\java\jaxb\messages.xsd"
