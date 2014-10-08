@@ -1,10 +1,11 @@
-package com.an.antry.java.string;
-
-import org.junit.Test;
+package com.an.antry.java.array;
 
 public class StringTest {
+    public static void main(String[] args) {
+        StringTest test = new StringTest();
+        test.test();
+    }
 
-    @Test
     public void test() {
         String s1 = "0";
         String s2 = "0.0";
