@@ -9,7 +9,7 @@ public class IpAddress {
         System.out.println("longToIp  : " + obj.longToIp(3232235778L));
         System.out.println("longToIp2 : " + obj.longToIp2(3232235778L));
 
-        System.out.println("longToIp2 : " + obj.longToIp2(3758096128l));
+        System.out.println("longToIp2 : " + obj.longToIp2(100000163l));
     }
 
     // example : 192.168.1.2
