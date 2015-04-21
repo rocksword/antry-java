@@ -1,21 +1,21 @@
-package com.an.antry.java.multithread.staticsync;
+package com.an.antry.java.thread.nosync;
 
-public class ThreadTest {
+import java.util.Random;
+
+public class ThreadSync {
     public static void main(String[] args) {
         Example example = new Example();
-        Thread t1 = new Thread1(example);
-        example = new Example();
-        Thread t2 = new Thread2(example);
-        t1.start();
-        t2.start();
+        new Thread1(example).start();
+        new Thread2(example).start();
     }
 }
 
 class Example {
-    public synchronized static void execute() {
-        for (int i = 0; i < 20; ++i) {
+    public static void execute1() {
+        for (int i = 0; i < 10; ++i) {
             try {
-                Thread.sleep((long) Math.random() * 1000);
+                int s = Math.abs(new Random().nextInt(1000));
+                Thread.sleep(s);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
@@ -23,10 +23,11 @@ class Example {
         }
     }
 
-    public synchronized static void execute2() {
-        for (int i = 0; i < 20; ++i) {
+    public static void execute2() {
+        for (int i = 0; i < 10; ++i) {
             try {
-                Thread.sleep((long) Math.random() * 1000);
+                int s = Math.abs(new Random().nextInt(1000));
+                Thread.sleep(s);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
@@ -44,7 +45,7 @@ class Thread1 extends Thread {
 
     @Override
     public void run() {
-        Example.execute();
+        Example.execute1();
     }
 }
 

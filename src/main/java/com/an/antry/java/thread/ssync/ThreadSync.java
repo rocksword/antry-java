@@ -1,20 +1,21 @@
-package com.an.antry.java.multithread.objsync;
+package com.an.antry.java.thread.ssync;
 
-public class ThreadTest {
+import java.util.Random;
+
+public class ThreadSync {
     public static void main(String[] args) {
         Example example = new Example();
-        Thread t1 = new Thread1(example);
-        Thread t2 = new Thread2(example);
-        t1.start();
-        t2.start();
+        new Thread1(example).start();
+        new Thread2(example).start();
     }
 }
 
 class Example {
-    public synchronized void execute() {
-        for (int i = 0; i < 20; ++i) {
+    public synchronized static void execute1() {
+        for (int i = 0; i < 10; ++i) {
             try {
-                Thread.sleep((long) Math.random() * 1000);
+                int s = Math.abs(new Random().nextInt(1000));
+                Thread.sleep(s);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
@@ -22,10 +23,11 @@ class Example {
         }
     }
 
-    public synchronized void execute2() {
-        for (int i = 0; i < 20; ++i) {
+    public synchronized static void execute2() {
+        for (int i = 0; i < 10; ++i) {
             try {
-                Thread.sleep((long) Math.random() * 1000);
+                int s = Math.abs(new Random().nextInt(1000));
+                Thread.sleep(s);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
@@ -43,7 +45,7 @@ class Thread1 extends Thread {
 
     @Override
     public void run() {
-        example.execute();
+        Example.execute1();
     }
 }
 
@@ -56,6 +58,6 @@ class Thread2 extends Thread {
 
     @Override
     public void run() {
-        example.execute2();
+        Example.execute2();
     }
 }

@@ -1,18 +1,16 @@
-package com.an.antry.java.multithread;
+package com.an.antry.java.thread;
 
-public class ThreadTest {
+public class ThreadSync {
     public static void main(String[] args) {
         Example example = new Example();
-        Thread t1 = new Thread1(example);
-        Thread t2 = new Thread1(example);
-        t1.start();
-        t2.start();
+        new Thread1(example).start();
+        new Thread1(example).start();
     }
 }
 
 class Example {
-    public void execute() {
-        // public synchronized void execute() {
+    // public void execute() {
+    public synchronized void execute() {
         for (int i = 0; i < 10; ++i) {
             try {
                 Thread.sleep(500);
